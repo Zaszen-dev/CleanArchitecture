@@ -7,7 +7,7 @@ namespace CleanArchitecture.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class PostController(IMediator mediator) : ControllerBase
+public class PostController(IMediator mediator, ILogger<PostController> logger) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> Get()
@@ -18,6 +18,11 @@ public class PostController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CreatePostCommand command)
     {
+        logger.LogInformation(
+            "Calling post creation with title: {Title} and content:{Content}",
+            command.Title,
+            command.Content
+        );
         await mediator.Send(command);
         return Created();
     }

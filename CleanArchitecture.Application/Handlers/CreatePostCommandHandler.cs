@@ -21,6 +21,7 @@ public class CreatePostCommandHandler(IPostRepository postRepository)
             Title = request.Title,
             Content = request.Content
         };
+
         return postRepository.AddAsync(post);
     }
 }

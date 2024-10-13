@@ -1,5 +1,6 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure.Repositories;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationDependencies();
 builder.Services.AddSingleton<IPostRepository, InMemoryPostRepository>();
+builder.Host.UseSerilog((context, config) =>
+    config.ReadFrom.Configuration(context.Configuration));
 
 var app = builder.Build();
 
