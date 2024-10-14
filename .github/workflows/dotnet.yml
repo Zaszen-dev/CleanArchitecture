@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Format
-      run: dotnet format --verify-no-changes --verbosity diagnostic
+      run: dotnet format --verify-no-changes --verbosity diagnostic ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Build
       run: dotnet build --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Test
