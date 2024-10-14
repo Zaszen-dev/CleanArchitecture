@@ -9,19 +9,19 @@ namespace CleanArchitecture.Api.SerilogEnrichers;
 /// </summary>
 public class ThreadPriorityEnricher : ILogEventEnricher
 {
-    /// <summary>
-    /// Enriches a log event with a property representing the priority of the thread
-    /// that generated the event.
-    /// </summary>
-    /// <param name="logEvent">The log event to enrich.</param>
-    /// <param name="propertyFactory">The factory to use to create the property.</param>
-    public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
-    {
-        var threadPriorityProperty = propertyFactory.CreateProperty(
-            "ThreadPriority",
-            Thread.CurrentThread.Priority.ToString()
-        );
+	/// <summary>
+	/// Enriches a log event with a property representing the priority of the thread
+	/// that generated the event.
+	/// </summary>
+	/// <param name="logEvent">The log event to enrich.</param>
+	/// <param name="propertyFactory">The factory to use to create the property.</param>
+	public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
+	{
+		var threadPriorityProperty = propertyFactory.CreateProperty(
+			"ThreadPriority",
+			Thread.CurrentThread.Priority.ToString()
+		);
 
-        logEvent.AddPropertyIfAbsent(threadPriorityProperty);
-    }
+		logEvent.AddPropertyIfAbsent(threadPriorityProperty);
+	}
 }
