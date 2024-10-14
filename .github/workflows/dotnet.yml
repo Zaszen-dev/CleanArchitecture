@@ -22,6 +22,8 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
+    - name : Format version
+      run : dotnet format --version
     - name: Format
       run: dotnet format --verify-no-changes --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Build
