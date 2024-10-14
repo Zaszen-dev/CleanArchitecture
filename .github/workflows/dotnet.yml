@@ -27,4 +27,5 @@ jobs:
     - name: Build
       run: dotnet build --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal ./CleanArchitecture.Application.UnitTest/CleanArchitecture.Application.UnitTest.csproj
+      
