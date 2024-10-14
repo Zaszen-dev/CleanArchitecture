@@ -20,12 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: ls
-      run: ls -al
     - name: Restore dependencies
       run: dotnet restore ./CleanArchitecture.Api/CleanArchitecture.Api.csproj
     - name: Build
       run: dotnet build --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal ./CleanArchitecture.Application.UnitTest/CleanArchitecture.Application.UnitTest.csproj
+      run: dotnet test --verbosity normal ./CleanArchitecture.Application.UnitTest/CleanArchitecture.Application.UnitTest.csproj
       
