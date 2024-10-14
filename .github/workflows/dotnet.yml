@@ -21,9 +21,9 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore ./CleanArchitecture.Api/CleanArchitecture.Api.csproj
+      run: dotnet restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Build
-      run: dotnet build --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.csproj
+      run: dotnet build --no-restore ./CleanArchitecture.Api/CleanArchitecture.Api.sln
     - name: Test
-      run: dotnet test --verbosity normal ./CleanArchitecture.Application.UnitTest/CleanArchitecture.Application.UnitTest.csproj
+      run: dotnet test --no-build --verbosity normal ./CleanArchitecture.Api/CleanArchitecture.Api.sln
       
